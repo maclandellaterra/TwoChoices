@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <title>You are lost!!!</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic" />
+    <link rel="stylesheet" href="milligram.min.css" />
+    <style type="text/css">
+body {
+  background-color: black;
+}
+.stars {
+  background-image: url('./assets/stars.jpg');
+  background-repeat: repeat;
+  background-position: left top; 
+  background-size: 35%;
+  width: 100vw;
+  height: 100vh;
+}
+
+.animated {
+  -webkit-animation-duration: 2s; 
+  animation-duration: 2s; 
+  -webkit-animation-fill-mode: both; 
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes shake {
+  0%, 100% {-webkit-transform: translateX(0) translateY(0);} 
+  10%, 30%, 50%, 70%, 90% {-webkit-transform: translateX(-10px) translateY(-10px);} 
+  20%, 40%, 60%, 80% {-webkit-transform: translateX(10px) translateY(10px);} 
+}
+
+@keyframes shake { 
+  0%, 100% {transform: translateX(0);} 
+  10%, 30%, 50%, 70%, 90% {transform: translateX(-10px) translateY(-10px);} 
+  20%, 40%, 60%, 80% {transform: translateX(10px) translateY(10px);} 
+}
+
+.shake { 
+  -webkit-animation: shake 2s infinite; 
+  animation: shake 2s infitite; 
+}
+
+.spacePirateShip {
+  width: 1vw;
+  display: none;
+}
+    </style>
+  </head>
+  <body onload="initialize()">
+    <div id="STARS" class="stars animated shake">
+      <main>
+        <img id="SHIP" src="./assets/spacePirateShip.png" class="spacePirateShip" />
+      </main>
+    </div>
+    <script>
+      let zoom = 35
+      let stars = document.getElementById('STARS')
+      let ship = document.getElementById('SHIP')
+      const initialize = () => {
+        stars.style.cssText = "background-size: ${zoom}%"
+	document.addEventListener('mousedown', function (evt) {
+	  zoom += 2
+	  stars.style.cssText = `background-size: ${zoom}%`
+	  if (zoom > 50) {
+	    ship.style.cssText = `display: block; width: ${zoom - 50}vw;`
+	  }
+	  console.log(`You zoomed ${zoom}`);
+	});
+      }
+    </script> 
+  </body>
+</html>

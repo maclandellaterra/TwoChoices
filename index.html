@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>2 Buttons, 2 Choices</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic" />
+    <link rel="stylesheet" href="milligram.min.css" />
+    <style type="text/css">
+      button.go {
+        background-color: #00cc66;
+        color: #990000;
+      }
+      button.stop {
+        background-color: #ff88bb;
+        color: #118822;
+      }
+  </style>
+  <script>
+	const initialize = () => {
+	  const startButton = document.getElementById('START')
+	  const stopButton = document.getElementById('STOP')
+	  stopButton.onclick = () => {
+	    alert("Tricked you!")
+	    document.location = 'blackSpace.html' 
+	  }
+	}
+  </script> 
+</head>
+  <body onload="initialize()">
+    <main>
+      <h1>2 Buttons</h1>
+      <h2>2 Choices</h2>
+      <p>Click one. There is a lot of history behind these buttons!</p>
+      <button id="START" class="go button">START</button>
+      <button id="STOP" class="stop button">STOP</button>
+    </main>
+  </body>
+</html>
